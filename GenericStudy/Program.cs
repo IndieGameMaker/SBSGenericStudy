@@ -85,3 +85,12 @@ public class Weapon : Item
 {
     public int Damage { get; set; }
 }
+
+// 제너릭 싱글턴 (Generic Singleton)
+public class Singleton<T> where T : class, new()
+{
+    private static T? _instance;
+
+    // private 생성자 (외부 클래스에서 인스턴스 생성 불가)
+    private Singleton() {}
+}
