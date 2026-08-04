@@ -12,10 +12,30 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        // int 타입
+        Box<int> intBox = new Box<int>();
+        intBox.Set(123);
+        Console.WriteLine(intBox.Get());
+        
+        // string 타입
+        Box<string> strBox = new Box<string>();
+        strBox.Set("문자열 지정");
+        Console.WriteLine(strBox.Get());
     }
     
     // static int AddInt(int a, int b) => a + b;
     // static float AddFloat(float a, float b) => a + b;
 }
 
+// 제너릭(Generic) 클래스
+public class Box<T>
+{
+    public T Item;
+    
+    public void Set(T item)
+    {
+        Item = item;
+    }
+
+    public T Get() => Item;
+}
