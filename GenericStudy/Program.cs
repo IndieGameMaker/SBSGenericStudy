@@ -86,6 +86,16 @@ public class Weapon : Item
     public int Damage { get; set; }
 }
 
+public class GameManager
+{
+    public void StartGame() => Console.WriteLine("게임 시작");
+}
+
+public class AudioManager
+{
+    public void PlaySound(string clip) => Console.WriteLine($"사운드 재생 {clip}");
+}
+
 // 제너릭 싱글턴 (Generic Singleton)
 public class Singleton<T> where T : class, new()
 {
