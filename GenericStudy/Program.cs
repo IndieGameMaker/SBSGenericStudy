@@ -93,4 +93,17 @@ public class Singleton<T> where T : class, new()
 
     // private 생성자 (외부 클래스에서 인스턴스 생성 불가)
     private Singleton() {}
+    
+    // 외부 접근 가능한 프로퍼티
+    public static T Instance
+    {
+        get
+        {
+            if (_instance == null) // 인스턴스가 아직 생성되지 않은 경우
+            {
+                _instance = new T();
+            }
+            return _instance;
+        }
+    }
 }
