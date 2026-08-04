@@ -54,4 +54,12 @@ public class Inventory<T>
     {
         _items.Remove(item);
     }
+    
+    public void DisplayItems()
+    {
+        foreach (var item in _items)
+        {
+            Console.WriteLine(item);
+        }
+    }
 }
