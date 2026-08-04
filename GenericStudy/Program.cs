@@ -39,3 +39,19 @@ public class Box<T>
 
     public T Get() => Item;
 }
+
+// 제너릭 타입의 인벤토리
+public class Inventory<T>
+{
+    private List<T> _items = new List<T>();
+    
+    public void Add(T item)
+    {
+        _items.Add(item);
+    }
+    
+    public void Remove(T item)
+    {
+        _items.Remove(item);
+    }
+}
