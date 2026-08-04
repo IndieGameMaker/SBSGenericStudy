@@ -23,11 +23,12 @@ class Program
         Console.WriteLine(strBox.Get());
         
         // 제너릭 타입의 인벤토리 사용
-        Inventory<string> stringInventory = new Inventory<string>();
-        stringInventory.Add("Sword");
-        stringInventory.Add("Shield");
-        stringInventory.DisplayItems();
+        // Inventory<string> stringInventory = new Inventory<string>();
+        // stringInventory.Add("Sword");
+        // stringInventory.Add("Shield");
+        // stringInventory.DisplayItems();
         
+        // 제약 조건을 가진 제너릭 타입의 인벤토리 사용
         Inventory<Weapon> weaponInventory = new Inventory<Weapon>();
         weaponInventory.Add(new Weapon { Name = "Sword", Damage = 10 });
         weaponInventory.Add(new Weapon { Name = "Axe", Damage = 15 });
@@ -52,7 +53,7 @@ public class Box<T>
 }
 
 // 제너릭 타입의 인벤토리
-public class Inventory<T>
+public class Inventory<T> where T : Item
 {
     private List<T> _items = new List<T>();
     
@@ -70,7 +71,7 @@ public class Inventory<T>
     {
         foreach (var item in _items)
         {
-            Console.WriteLine(item);
+            Console.WriteLine(item.Name);
         }
     }
 }
