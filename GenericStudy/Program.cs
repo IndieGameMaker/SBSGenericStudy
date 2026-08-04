@@ -16,27 +16,31 @@ class Program
         Box<int> intBox = new Box<int>();
         intBox.Set(123);
         Console.WriteLine(intBox.Get());
-        
+
         // string 타입
         Box<string> strBox = new Box<string>();
         strBox.Set("문자열 지정");
         Console.WriteLine(strBox.Get());
-        
+
         // 제너릭 타입의 인벤토리 사용
         // Inventory<string> stringInventory = new Inventory<string>();
         // stringInventory.Add("Sword");
         // stringInventory.Add("Shield");
         // stringInventory.DisplayItems();
-        
+
         // 제약 조건을 가진 제너릭 타입의 인벤토리 사용
         Inventory<Weapon> weaponInventory = new Inventory<Weapon>();
         weaponInventory.Add(new Weapon { Name = "Sword", Damage = 10 });
         weaponInventory.Add(new Weapon { Name = "Axe", Damage = 15 });
         weaponInventory.DisplayItems();
+        
+        GameManager gameManager = Singleton<GameManager>.Instance;
+        gameManager.StartGame(); // 싱글턴으로 전역적으로 편하게 접근 가능
+        
+        AudioManager audioManager = Singleton<AudioManager>.Instance;
+        audioManager.PlaySound("파이어");
+        Singleton<AudioManager>.Instance.PlaySound("폭발효과음");
     }
-    
-    // static int AddInt(int a, int b) => a + b;
-    // static float AddFloat(float a, float b) => a + b;
 }
 
 // 제너릭(Generic) 클래스
