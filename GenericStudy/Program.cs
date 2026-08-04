@@ -21,6 +21,17 @@ class Program
         Box<string> strBox = new Box<string>();
         strBox.Set("문자열 지정");
         Console.WriteLine(strBox.Get());
+        
+        // 제너릭 타입의 인벤토리 사용
+        Inventory<string> stringInventory = new Inventory<string>();
+        stringInventory.Add("Sword");
+        stringInventory.Add("Shield");
+        stringInventory.DisplayItems();
+        
+        Inventory<Weapon> weaponInventory = new Inventory<Weapon>();
+        weaponInventory.Add(new Weapon { Name = "Sword", Damage = 10 });
+        weaponInventory.Add(new Weapon { Name = "Axe", Damage = 15 });
+        weaponInventory.DisplayItems();
     }
     
     // static int AddInt(int a, int b) => a + b;
@@ -62,4 +73,14 @@ public class Inventory<T>
             Console.WriteLine(item);
         }
     }
+}
+
+public class Item
+{
+    public string Name { get; set; }
+}
+
+public class Weapon : Item
+{
+    public int Damage { get; set; }
 }
